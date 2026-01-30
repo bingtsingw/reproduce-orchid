@@ -1,4 +1,4 @@
-import { orchidORM } from 'orchid-orm/postgres-js';
+import { orchidORM } from 'orchid-orm/node-postgres';
 import { CONSTANT } from '../../utils';
 import { TableUser } from './user';
 
