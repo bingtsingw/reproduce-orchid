@@ -1,5 +1,5 @@
 {
-  "name": "orchid-reproduction",
+  "name": "reproduce-orchid",
   "version": "0.0.0",
   "scripts": {
     "check-type": "tsc --noEmit",
