@@ -6,16 +6,18 @@ Reuseable repo for orchid issue reproduction
 
 > The default database url is: `postgresql://postgres:password@127.0.0.1:5432/reproduce-orchid`
 
-## issue-423
+## issue-628
 
-https://github.com/romeerez/orchid-orm/issues/423
+https://github.com/romeerez/orchid-orm/issues/628
 
 ```shell
 # migrate
-bun run src/issue-423/script.ts migrate
+bun run src/issue-628/script.ts migrate
 
 # test
-bun test src/issue-423/issue.spec.ts --preload ./src/issue-423/test-setup.ts
+bun test src/issue-628/issue.spec.ts --preload ./src/issue-628/test-setup.ts
+
+bun test src/issue-628/issue.spec.ts
 ```
 
 <details>
