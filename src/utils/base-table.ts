@@ -18,6 +18,7 @@ const updatedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
   t
     .timestampsNoTZ()
     .updatedAt.default(() => new Date().toISOString())
+    .setOnUpdate(() => new Date().toISOString())
     .asDate();
 
 const deletedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () => t.timestampNoTZ().asDate().nullable();
