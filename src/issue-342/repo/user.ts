@@ -1,15 +1,11 @@
-import { createRepo, raw } from 'orchid-orm';
+import { BaseTable } from '@/src/utils';
+import { createRepo } from 'orchid-orm';
 import { db } from '../tables';
 
 export const user = createRepo(db.user, {
   queryMethods: {
     whereByProfileName: (q, input: string) => {
-      return q.where(
-        raw({
-          raw: `("user"."profile"->>'name')::text ILIKE $keyword`,
-          values: { keyword: input },
-        }),
-      );
+      return q.whereSql`("user"."profile"->>'name')::text ILIKE ${BaseTable.sql.unsafe(input)}`;
     },
   },
 });
