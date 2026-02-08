@@ -33,14 +33,13 @@ const updatedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () =>
   t
     .timestampsNoTZ()
     .updatedAt.default(() => new Date().toISOString())
-    .setOnUpdate(() => new Date().toISOString())
     .asDate();
 
 const deletedAt = (t: DefaultColumnTypes<DefaultSchemaConfig>) => () => t.timestampNoTZ().asDate().nullable();
 
 export const BaseTable = createBaseTable({
   snakeCase: true,
-  nowSQL: `clock_timestamp() AT TIME ZONE 'UTC'`,
+  nowSQL: `clock_timestamp()::timestamptz(3) AT TIME ZONE 'UTC'`,
 
   columnTypes: (t) => ({
     ...t,
